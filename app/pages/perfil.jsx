@@ -41,6 +41,7 @@ export default function Perfil() {
                 />
              </TouchableOpacity>
 
+             {/* Título Centralizado */}
              <Text style={styles.headerTitle}>Meu Perfil</Text>
 
              {/* Botão SIDEBAR */}

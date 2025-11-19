@@ -1,4 +1,3 @@
-// app/components/CustomDrawerContent.jsx
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, ScrollView } from 'react-native';
 
@@ -8,7 +7,11 @@ export default function CustomDrawerContent(props) {
   
   // Função auxiliar para saber se a rota é a ativa
   const isActive = (routeName) => {
-    return state.routes[state.index].name === routeName;
+    // Verifica se a rota atual corresponde ao nome passado
+    // O 'try/catch' ou verificação simples previne erros se o state não estiver pronto
+    const currentRouteIndex = state?.index ?? 0;
+    const currentRouteName = state?.routes[currentRouteIndex]?.name;
+    return currentRouteName === routeName;
   };
 
   // Componente de Item de Menu Personalizado
@@ -98,7 +101,12 @@ export default function CustomDrawerContent(props) {
 
       {/* 4. Rodapé: Botão Sair */}
       <View style={styles.drawerFooter}>
-        <TouchableOpacity onPress={() => console.log("Sair")} style={styles.logoutButton}>
+        {/* AQUI ESTÁ A MUDANÇA: navigation.navigate('Login') */}
+        {/* Usamos 'replace' se quiser resetar o histórico, ou 'navigate' para voltar */}
+        <TouchableOpacity 
+            onPress={() => navigation.navigate('Login')} 
+            style={styles.logoutButton}
+        >
             <Image 
                 source={{ uri: 'https://cdn-icons-png.flaticon.com/512/1828/1828479.png' }} 
                 style={{ width: 20, height: 20, tintColor: '#333', marginRight: 15 }} 
