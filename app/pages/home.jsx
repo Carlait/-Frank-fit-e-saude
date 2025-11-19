@@ -13,18 +13,14 @@ export default function Home({ navigation }) {
     <View style={styles.mainContainer}>
         
       {/* --- CABEÇALHO (HEADER) --- */}
-      {/* Mantive o header fixo no topo */}
       <View style={styles.headerContainer}>
+        
+        {/* Linha dos Botões do Topo */}
+        {/* Removi o botão Voltar. O justifyContent 'space-between' com um item vai jogar o Coração para a esquerda.
+            Se quiser o coração na direita, mude o estilo topButtonsRow para { justifyContent: 'flex-end' } */}
         <View style={styles.topButtonsRow}>
-            {/* Botão VOLTAR */}
-            <TouchableOpacity style={styles.squareButtonGrey} onPress={() => navigation.goBack()}>
-              <Image 
-                source={{ uri: 'https://cdn-icons-png.flaticon.com/512/271/271220.png' }} 
-                style={styles.backIcon} 
-              />
-            </TouchableOpacity>
-
-            {/* Botão SIDEBAR */}
+            
+            {/* Botão SIDEBAR (Coração) */}
             <TouchableOpacity 
               style={styles.squareButtonBlack} 
               onPress={() => navigation.openDrawer()} 
@@ -34,6 +30,7 @@ export default function Home({ navigation }) {
                   style={styles.heartIcon} 
               />
             </TouchableOpacity>
+
         </View>
 
         {/* Área do Perfil */}
@@ -68,7 +65,6 @@ export default function Home({ navigation }) {
       </View>
 
       {/* --- ÁREA DE CONTEÚDO (GRID) --- */}
-      {/* Esta View ocupa todo o espaço restante da tela (flex: 1) */}
       <View style={styles.gridContainer}>
         
         {/* LINHA 1 */}
@@ -153,9 +149,8 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 40, 
     borderBottomRightRadius: 40,
     paddingHorizontal: 20,
-    paddingTop: 50, // Safe area manual
+    paddingTop: 50, 
     paddingBottom: 25,
-    // Sombra
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.2,
@@ -165,7 +160,8 @@ const styles = StyleSheet.create({
   },
   topButtonsRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    // Se quiser o coração na direita, troque 'space-between' por 'flex-end'
+    justifyContent: 'space-between', 
     alignItems: 'center',
     marginBottom: 20, 
   },
@@ -245,24 +241,23 @@ const styles = StyleSheet.create({
 
   // --- GRID LAYOUT ---
   gridContainer: {
-    flex: 1, // Ocupa todo o espaço restante
+    flex: 1, 
     padding: 20,
-    justifyContent: 'space-evenly', // Distribui verticalmente
+    justifyContent: 'space-evenly', 
   },
   gridRow: {
-    flex: 1, // Cada linha ocupa metade do espaço disponível
+    flex: 1, 
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 15,
-    maxHeight: '48%', // Garante separação
+    maxHeight: '48%', 
   },
   gridCard: {
-    width: '48%', // Cabe 2 lado a lado com folga
-    height: '100%', // Ocupa toda altura da linha
+    width: '48%', 
+    height: '100%', 
     borderRadius: 25,
     overflow: 'hidden',
     backgroundColor: '#FFF',
-    // Sombra suave
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,

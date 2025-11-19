@@ -19,17 +19,24 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '
 // --- IMPORTAÇÃO DAS PÁGINAS ---
 import Home from './pages/home'; 
 import Perfil from './pages/perfil'; 
+
+// Atividades
 import Atividades from './pages/atividades'; 
 import NovasAtividades from './pages/novasatividades';
+
+// Hábitos
 import Habitos from './pages/habitos';      
 import NovosHabitos from './pages/novoshabitos';
+
+// Dicas
 import Dicas from './pages/dicas'; 
 import NovasDicas from './pages/novasdicas';
+
+// Humor
 import Humor from './pages/humor';
 import NovoHumor from './pages/novohumor';
 
 // --- IMPORTAÇÃO DO DRAWER (SIDEBAR) ---
-// Certifique-se que o caminho está correto baseada na sua estrutura de pastas
 import CustomDrawerContent from './components/CustomDrawerContent'; 
 
 const { height } = Dimensions.get('window');
@@ -162,7 +169,9 @@ function MainStack() {
       }}
     >
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-      <Stack.Screen name="Perfil" component={Perfil} />
+      
+      {/* --- AQUI ESTÁ A CORREÇÃO DO CABEÇALHO --- */}
+      <Stack.Screen name="Perfil" component={Perfil} options={{ headerShown: false }} />
       
       <Stack.Screen name="Atividades" component={Atividades} options={{ headerShown: false }} />
       <Stack.Screen name="NovasAtividades" component={NovasAtividades} options={{ headerShown: false }} />
@@ -183,9 +192,7 @@ function MainStack() {
 function DrawerNavigation() {
   return (
     <Drawer.Navigator
-        // AQUI ELE USA O SEU NOVO ARQUIVO IMPORTADO
         drawerContent={(props) => <CustomDrawerContent {...props} />}
-        
         screenOptions={{
           headerShown: false,
           drawerActiveTintColor: '#F97316', // Laranja ao selecionar
@@ -195,7 +202,6 @@ function DrawerNavigation() {
           drawerItemStyle: { borderRadius: 10, paddingLeft: 10, marginVertical: 2 },
         }}
       >
-        {/* ÍCONES PERSONALIZADOS PARA O MENU */}
         <Drawer.Screen 
             name="Início" 
             component={MainStack} 
