@@ -4,7 +4,7 @@
 
 - Gabriel Koch                      - RA202351084354
 - George Goncalves Miranda          - RA202503466882
-- Joao 
+- João Victor Paixão Silva          -RA202502930747
 - Lucas Toledo
 - Marcela fernanda Assis Araujo     - RA202503749264
 - Nathan Ramos                      - RA202351050451
