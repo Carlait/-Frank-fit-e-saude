@@ -1,3 +1,15 @@
+# Grupo Frank fit & saude
+
+## Alunos
+
+- Gabriel Koch                      - RA202351084354
+- George Goncalves Miranda          - RA202503466882
+- Joao 
+- Lucas Toledo
+- Marcela fernanda Assis Araujo     - RA202503749264
+- Nathan Ramos                      - RA202351050451
+- Tulio Silva de Sa Oliveira        - RA202351078311
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
